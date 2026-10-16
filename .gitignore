@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+.env*.local
+.vercel
+npm-debug.log*
+.DS_Store
+
+# Original downloads stay local: they include an unlicensed font (Edensor Free) and
+# theme-demo artwork with unconfirmed reuse rights. The site only needs public/.
+source-assets/

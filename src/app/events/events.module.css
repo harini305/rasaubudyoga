@@ -1,0 +1,146 @@
+/* ---------- Hero collage ---------- */
+.collage {
+  position: relative;
+  padding: 0 0 12% 12%;
+}
+
+.collageMain {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--arch);
+}
+
+.collageSmall {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 0.4rem solid var(--bg);
+}
+
+.collageMain img,
+.collageSmall img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collageFlower {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0;
+  width: clamp(3.5rem, 7vw, 5.5rem);
+  color: var(--sand);
+  opacity: 0.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  width: 100%;
+}
+
+/* ---------- Schedule strip ---------- */
+.strip {
+  border-block: 1px solid var(--line);
+  background: var(--bg-alt);
+}
+
+.stripGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stripItem {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1rem, 2.5vw, 2rem);
+}
+
+.stripItem:first-child {
+  padding-left: 0;
+}
+
+.stripItem + .stripItem {
+  border-left: 1px solid var(--line);
+}
+
+.stripNum {
+  font-size: var(--step-2);
+  line-height: 1;
+  color: var(--sand-light);
+}
+
+.stripTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.inlineLink {
+  color: var(--sand-light);
+  text-underline-offset: 0.25em;
+}
+
+/* ---------- Gallery ---------- */
+.gallery {
+  padding-block: var(--section-tight);
+}
+
+.galleryWrap {
+  margin-top: clamp(1rem, 2vw, 1.75rem);
+}
+
+/* ---------- Upcoming ---------- */
+.upcomingGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+}
+
+.upcomingTitle {
+  font-size: var(--step-4);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--sand);
+}
+
+.upcomingTitle em {
+  text-transform: none;
+  color: var(--sand-light);
+}
+
+.upcomingText {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: end;
+}
+
+.upcomingText .actions {
+  width: auto;
+}
+
+@media (max-width: 47.99rem) {
+  .stripGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stripItem,
+  .stripItem:first-child {
+    padding: 1.25rem 0;
+  }
+
+  .stripItem + .stripItem {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}

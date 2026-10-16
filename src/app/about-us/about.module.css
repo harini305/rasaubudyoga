@@ -1,0 +1,294 @@
+/* ---------- Hero ---------- */
+.hero {
+  padding-top: calc(var(--header-h) + clamp(1rem, 3vw, 2.5rem));
+  padding-bottom: var(--section-tight);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.heroText {
+  display: grid;
+  gap: 1.75rem;
+  justify-items: start;
+}
+
+.word {
+  font-size: clamp(5.5rem, 2rem + 16vw, 16rem);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  margin-left: -0.05em;
+}
+
+.definition {
+  font-family: var(--font-serif);
+  font-size: var(--step-3);
+  line-height: 1.15;
+  font-weight: 300;
+}
+
+.definition em {
+  color: var(--gold-ink);
+}
+
+.lang {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.heroMedia {
+  position: relative;
+}
+
+.heroArch {
+  aspect-ratio: 4 / 4.6;
+  max-height: 72svh;
+  width: 100%;
+  border-radius: var(--arch);
+  overflow: hidden;
+}
+
+.heroArch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+
+.heroFlower {
+  position: absolute;
+  left: -2.5rem;
+  bottom: 8%;
+  width: clamp(5rem, 9vw, 8rem);
+  color: var(--sand-deep);
+}
+
+/* ---------- Story ---------- */
+.story {
+  text-align: center;
+  padding-top: var(--section-tight);
+}
+
+.lotus {
+  width: 4rem;
+  margin: 0 auto 1.5rem;
+  color: var(--sand-deep);
+}
+
+.storyText {
+  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.65rem);
+  line-height: 1.6;
+  font-weight: 300;
+  text-wrap: pretty;
+}
+
+/* ---------- Gallery ---------- */
+/* Fixed-ratio grid: the two right-hand images always total the height of the large one. */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  aspect-ratio: 16 / 8.4;
+}
+
+.galleryGrid figure {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.galleryGrid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.g0 {
+  grid-row: 1 / span 2;
+  border-radius: var(--leaf-lg);
+}
+
+.g1 {
+  border-radius: 0 var(--leaf-lg) 0 0;
+  border-top-right-radius: 2.5rem;
+}
+
+.g2 {
+  border-radius: 0 0 2.5rem 0;
+}
+
+/* ---------- Living ---------- */
+.livingGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.livingMedia {
+  position: relative;
+}
+
+.circle {
+  width: min(100%, 32rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circle img,
+.stack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.livingSprig {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  width: clamp(4rem, 8vw, 6.5rem);
+  color: var(--sand-deep);
+}
+
+.livingText,
+.classesText {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: start;
+}
+
+.h2 {
+  font-size: var(--step-4);
+  line-height: 1;
+}
+
+/* ---------- Classes ---------- */
+.classes {
+  background: var(--bg-alt);
+}
+
+.classesGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.classList {
+  width: 100%;
+  margin-block: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.classList li {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.classNum {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold-ink);
+}
+
+.className {
+  font-size: var(--step-2);
+  line-height: 1.15;
+}
+
+.classesActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+
+.externalNote {
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+}
+
+.stack {
+  position: relative;
+  padding-bottom: 12%;
+}
+
+.stackBack {
+  width: 78%;
+  margin-left: auto;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-radius: var(--arch);
+}
+
+.stackFront {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 46%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-radius: var(--leaf-lg);
+  border: 0.5rem solid var(--bg-alt);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 56rem) {
+  .heroGrid,
+  .livingGrid,
+  .classesGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroArch {
+    aspect-ratio: 4 / 4.4;
+  }
+
+  .heroFlower {
+    left: auto;
+    right: 0.5rem;
+    bottom: -2rem;
+  }
+
+  .classesGrid .stack {
+    order: -1;
+    max-width: 30rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    aspect-ratio: auto;
+  }
+
+  .g0 {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .g1,
+  .g2 {
+    aspect-ratio: 1;
+  }
+}

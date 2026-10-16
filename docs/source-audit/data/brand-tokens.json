@@ -1,0 +1,56 @@
+{
+  "_source": "rasaubudyoga.com, captured 2026-10-16. status: verified = read from CSS/HTML/font/pixels; estimate = averaged or visual.",
+  "color": {
+    "forest":        { "value": "#3E4939", "status": "verified", "use": "primary; theme --qode-main-color; text, headings, filled buttons" },
+    "forestTexture": { "value": "#3F493A", "status": "estimate", "use": "average of green-noise-1920x1200-1.jpg (dark page background tile)" },
+    "sand":          { "value": "#AEA17E", "status": "verified", "use": "accent; icon strokes, marquees, sand buttons, inactive tabs, loader" },
+    "sandDeep":      { "value": "#8D8262", "status": "verified", "use": "tab hover" },
+    "logoGold":      { "value": "#948463", "status": "verified", "use": "logo ink (pixel sample of 2025/05/4.png)" },
+    "paper":         { "value": "#FCFBFA", "status": "estimate", "use": "average of light-noise-1920x1200-1.jpg (light page background tile)" },
+    "white":         { "value": "#FFFFFF", "status": "verified" },
+    "oliveOverlay":  { "value": "rgba(54, 64, 44, 1)", "alphas": [0.8, 0.4, 0.2, 0.1], "status": "verified", "use": "timetable header/time column tints" },
+    "sageGrey":      { "value": "#A7ABA5", "status": "verified", "use": "input underline, dividers" },
+    "mist":          { "value": "#FAFAFA", "status": "verified", "use": "blockquote background" },
+    "ink":           { "value": "#020101", "status": "verified", "use": "About classes paragraph/list text" },
+    "hairlineOnDark":{ "value": "rgba(255, 255, 255, 0.2)", "status": "verified" }
+  },
+  "font": {
+    "display": { "family": "Edensor", "file": "source-assets/theme/fonts/edensor.otf", "weights": [400], "status": "verified", "license": "UNVERIFIED - font name table says 'Edensor Free' by FactoryType; confirm commercial licence", "missingGlyphs": ["U+2013 en dash", "U+2014 em dash"] },
+    "sans":    { "family": "Lato", "source": "Google Fonts", "weights": [300, 400, 500, 600, 700], "status": "verified" }
+  },
+  "typeScale": {
+    "body": { "family": "Lato", "size": "15px", "lineHeight": "1.66667em", "weight": 400 },
+    "h1": { "size": "38px", "lineHeight": "1.21053em", "weight": 700, "letterSpacing": "0.05em", "transform": "uppercase" },
+    "h2": { "size": "32px", "lineHeight": "1.25em",    "weight": 700, "letterSpacing": "0.05em", "transform": "uppercase" },
+    "h3": { "size": "25px", "lineHeight": "1.52em",    "weight": 700, "letterSpacing": "0.05em", "transform": "uppercase" },
+    "h4": { "size": "19px", "lineHeight": "1.36842em", "weight": 700, "letterSpacing": "0.05em", "transform": "uppercase" },
+    "h5": { "size": "15px", "lineHeight": "1.4em",     "weight": 700, "letterSpacing": "0.05em", "transform": "uppercase" },
+    "h6": { "size": "13px", "lineHeight": "1.38462em", "weight": 700, "letterSpacing": "0.05em", "transform": "uppercase" },
+    "nav": { "size": "13px", "weight": 700, "letterSpacing": "0.05em", "transform": "uppercase" },
+    "button": { "size": "13px", "weight": 700, "letterSpacing": "0.05em", "transform": "uppercase", "padding": "14px 52px" },
+    "displayMarquee": { "family": "Edensor", "size": "200px", "transform": "uppercase", "color": "sand" },
+    "displayHero": { "family": "Edensor", "sizeDesktop": "155px", "sizeMobile": "30-40px", "transform": "uppercase", "color": "white" },
+    "price": { "family": "Edensor", "size": "60px", "color": "white" }
+  },
+  "shape": {
+    "buttonRadius": "15px 0 15px 0",
+    "imageMasks": ["arch (rounded top-left)", "circle"],
+    "lineWeight": "1px",
+    "shadows": "none"
+  },
+  "motion": {
+    "linkUnderline": "transform scaleX 0->1, 0.32s cubic-bezier(.31,.29,.05,.96), origin right->left",
+    "colorTransitions": "0.2s ease-out",
+    "headerAppearance": "sticky header slides down on scroll (qodef-appearance--down)",
+    "popupEntrance": "slideInDown",
+    "marquee": "continuous horizontal text marquee, direction left",
+    "parallax": "Home images and the Events 'Upcoming Events' word use theme parallax"
+  },
+  "layout": {
+    "contentGrid": "1300px (qodef-content-grid-1300)",
+    "headerHeight": "70px",
+    "logoHeight": "68px",
+    "headerSidePadding": "50px",
+    "breakpoints": ["1440", "1366", "1024", "768", "680", "480"]
+  }
+}

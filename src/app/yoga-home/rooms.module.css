@@ -1,0 +1,324 @@
+/* ---------- Hero ---------- */
+.heroInner {
+  display: grid;
+  gap: 2rem;
+}
+
+.heroTitle {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.25em;
+  font-size: clamp(3.5rem, 1rem + 12vw, 12rem);
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+.heroTitle span:last-child {
+  font-style: italic;
+  text-transform: none;
+  color: var(--sand-light);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+
+.heroLink {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-underline-offset: 0.4em;
+  color: #fff;
+}
+
+/* ---------- Intro ---------- */
+.introGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.introText {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.lotus {
+  width: 4rem;
+  color: var(--sand-deep);
+}
+
+.introLede {
+  font-family: var(--font-serif);
+  font-size: var(--step-3);
+  line-height: 1.25;
+  font-weight: 300;
+  text-wrap: pretty;
+}
+
+.amenities {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.amenityHead {
+  margin-bottom: 0.75rem;
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.amenityCol li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.amenityCol li::before {
+  content: '';
+  flex: none;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 1px solid var(--sand-deep);
+  border-radius: 0.3rem 0 0.3rem 0;
+}
+
+/* ---------- Rooms ---------- */
+.rooms {
+  padding-bottom: var(--section);
+}
+
+.roomsHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 2rem;
+}
+
+.roomsTitle {
+  font-size: var(--step-5);
+  text-transform: uppercase;
+}
+
+.roomsCount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.roomsCount :global(.display) {
+  font-size: var(--step-4);
+  letter-spacing: 0;
+  color: var(--fg);
+}
+
+.room {
+  display: grid;
+  gap: 1rem;
+}
+
+.roomMedia {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--leaf-lg);
+}
+
+.roomMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.room:hover .roomMedia img {
+  transform: scale(1.04);
+}
+
+.roomCaption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: var(--step-2);
+}
+
+.roomCaption::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* ---------- Perks ---------- */
+.perks {
+  background: var(--bg-alt);
+}
+
+.perksGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.perksText {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: start;
+}
+
+.perksTitle {
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.perkImages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.6rem, 1.5vw, 1.25rem);
+}
+
+.perkImages li {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--arch);
+}
+
+.perkImages li:nth-child(2) {
+  border-radius: var(--leaf-lg);
+}
+
+.perkImages img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Booking ---------- */
+.booking {
+  position: relative;
+  background: var(--forest);
+  color: var(--cream);
+  padding-block: var(--section);
+  scroll-margin-top: var(--header-h);
+}
+
+.bookingInner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.bookingHead {
+  display: grid;
+  gap: 1rem;
+}
+
+.bookingSprig {
+  width: clamp(2.75rem, 5vw, 4rem);
+  color: var(--sand);
+  opacity: 0.55;
+}
+
+.bookingTitle {
+  font-size: var(--step-4);
+  line-height: 1;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border: 1px solid var(--line);
+  border-radius: var(--leaf-lg);
+  transition: border-color 0.4s, background-color 0.4s;
+}
+
+.option:hover {
+  border-color: rgb(228 220 198 / 0.5);
+  background: rgb(243 239 230 / 0.04);
+}
+
+.optionService {
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sand-light);
+}
+
+.optionLead {
+  font-size: var(--step-2);
+  line-height: 1.15;
+  margin-bottom: auto;
+  padding-bottom: 1rem;
+}
+
+.bookingNote {
+  max-width: 52ch;
+  color: var(--fg-muted);
+  font-size: 0.9375rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 56rem) {
+  .introGrid,
+  .perksGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .amenities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 62rem) {
+  .bookingInner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .options,
+  .amenities {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bookingSprig {
+    display: none;
+  }
+}
+
+/* Dev-only review note spans the full booking row. */
+.bookingInner > aside {
+  grid-column: 1 / -1;
+}

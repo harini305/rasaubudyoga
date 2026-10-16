@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Rasa Ubud Yoga: design tokens & base
+   Brand values from docs/source-audit/05-brand-typography-colors.md
+   ========================================================================== */
+
+:root {
+  /* Brand (verified) */
+  --forest: #3e4939;
+  --sand: #aea17e;
+  --sand-deep: #8d8262;
+  --gold: #948463; /* logo ink */
+
+  /* Derived for accessibility (not in the original palette) */
+  --forest-deep: #333c2f; /* footer / dark-section depth */
+  --forest-ink: #232a20;
+  --sand-light: #cbbf9e; /* forest-ink text on it: 8.1:1; as text on forest: 5.2:1 */
+  --gold-ink: #6b6145; /* small gold text on paper: 5.6:1 */
+  --paper: #f8f5ef;
+  --paper-2: #efe9de;
+  --cream: #f3efe6; /* text on forest: 8.3:1 */
+
+  /* Type */
+  --font-sans: var(--font-body), 'Lato', system-ui, sans-serif;
+  --font-serif: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+
+  --step--1: 0.8125rem;
+  --step-0: 1.0625rem;
+  --step-1: clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem);
+  --step-2: clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem);
+  --step-3: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
+  --step-4: clamp(2.25rem, 1.6rem + 3vw, 4.25rem);
+  --step-5: clamp(2.75rem, 1.6rem + 5.4vw, 7rem);
+  --step-6: clamp(3rem, 1.2rem + 8.2vw, 10rem);
+
+  /* Space */
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --section: clamp(2.75rem, 2rem + 2.4vw, 4.5rem);
+  --section-tight: clamp(2rem, 1.5rem + 1.6vw, 3rem);
+  --container: 110rem; /* fills wide screens; only very large monitors get side margins */
+  --container-narrow: 46rem;
+
+  /* Shape: the Rasa leaf-cut corner (15px 0 15px 0 on the live site) */
+  --leaf: 1rem 0 1rem 0;
+  --leaf-lg: 2.5rem 0 2.5rem 0;
+  --arch: 999px 999px 0 0;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-line: cubic-bezier(0.31, 0.29, 0.05, 0.96); /* live site underline easing */
+  --header-h: 6.25rem;
+
+  color-scheme: light;
+}
+
+[data-theme='light'] {
+  --bg: var(--paper);
+  --bg-alt: var(--paper-2);
+  --fg: var(--forest);
+  --fg-muted: rgb(62 73 57 / 0.8);
+  --accent: var(--gold-ink);
+  --line: rgb(62 73 57 / 0.2);
+}
+
+[data-theme='dark'] {
+  --bg: var(--forest);
+  --bg-alt: var(--forest-deep);
+  --fg: var(--cream);
+  --fg-muted: rgb(243 239 230 / 0.74);
+  --accent: var(--sand-light);
+  --line: rgb(228 220 198 / 0.24);
+  color-scheme: dark;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--forest);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body:has(main[data-theme='dark']) {
+  background: var(--forest);
+}
+
+/* Paper grain: an inline SVG noise tile replaces the 2.4–2.7 MB theme texture JPEGs. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .2 0 0 0 0 .15 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img,
+svg,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:where(h1, h2, h3, h4, p, ul, ol, figure, blockquote, dl, dd) {
+  margin: 0;
+}
+
+/* :where() keeps this reset at zero specificity so component classes can add padding. */
+@media (max-width: 68.75rem) {
+  :root {
+    --header-h: 5.25rem;
+  }
+}
+
+:where(ul[role='list'], ol[role='list']) {
+  list-style: none;
+  padding: 0;
+}
+
+::selection {
+  background: var(--sand-light);
+  color: var(--forest-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent, var(--gold-ink));
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: calc(var(--container-narrow) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section);
+}
+
+.themed {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* ---------- Typography helpers ---------- */
+.display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.display em {
+  font-style: italic;
+}
+
+.caps {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--accent);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  flex: none;
+}
+
+.lede {
+  font-size: var(--step-1);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.muted {
+  color: var(--fg-muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--forest);
+  color: var(--cream);
+  border-radius: var(--leaf);
+  font-weight: 700;
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* Underline-grow link (live site: scaleX .32s) */
+.link-line {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s var(--ease-line);
+}
+
+.link-line:hover,
+.link-line:focus-visible,
+.link-line[aria-current='page'] {
+  background-size: 100% 1px;
+}
+
+/* ---------- Motion fail-safe ----------
+   Hero items start hidden ONLY when JS is running and motion is allowed. GSAP reveals them.
+   If GSAP never initialises, the fail-safe animation shows them anyway after 2.5s. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-hero-item] {
+    opacity: 0;
+    animation: hero-failsafe 0.6s ease 2.5s forwards;
+  }
+
+  html.js.motion-ready [data-hero-item] {
+    animation: none;
+  }
+}
+
+@keyframes hero-failsafe {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

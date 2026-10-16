@@ -1,0 +1,399 @@
+/* ---------- Hero ---------- */
+.heroInner {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 80rem;
+}
+
+.heroTitle {
+  font-size: clamp(3.4rem, 1.2rem + 8.2vw, 10rem);
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.heroTitle em {
+  color: var(--sand-light);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+/* ---------- Pillars ---------- */
+.pillarsWrap {
+  border-bottom: 1px solid var(--line);
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.pillars > li + li {
+  border-left: 1px solid var(--line);
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(1.5rem, 2.6vw, 2.25rem) 1rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.4s var(--ease-out);
+}
+
+.pillarIcon {
+  width: 3.25rem;
+  height: 3.25rem;
+  color: var(--sand-deep);
+  transition: transform 0.8s var(--ease-out), color 0.4s;
+}
+
+.pillar:hover {
+  background: var(--paper-2);
+}
+
+.pillar:hover .pillarIcon {
+  transform: rotate(18deg) scale(1.06);
+  color: var(--forest);
+}
+
+/* ---------- Intro ---------- */
+section.intro {
+  padding-bottom: var(--section-tight);
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 5.5rem);
+  align-items: center;
+}
+
+.introMedia {
+  position: relative;
+}
+
+.arch {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--arch);
+  overflow: hidden;
+}
+
+.arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.introSprig {
+  position: absolute;
+  right: -1.5rem;
+  bottom: -2rem;
+  width: clamp(4rem, 8vw, 6.5rem);
+  color: var(--sand-deep);
+}
+
+.introText {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.introLede {
+  font-size: clamp(1.4rem, 1.15rem + 1.1vw, 2.1rem);
+  line-height: 1.3;
+  font-weight: 300;
+  text-wrap: pretty;
+}
+
+.ctaList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 0.5rem 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Life at Rasa ---------- */
+.life {
+  padding-bottom: var(--section);
+}
+
+.lifeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 2fr) minmax(0, 0.85fr);
+  grid-template-rows: clamp(20rem, 30vw, 29rem);
+  gap: clamp(0.75rem, 1.6vw, 1.5rem);
+}
+
+.lifeText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  background: var(--paper-2);
+  border-radius: var(--leaf-lg);
+}
+
+.lifeFlower {
+  width: 3.25rem;
+  margin-bottom: auto;
+  color: var(--sand-deep);
+}
+
+.lifeTitle {
+  font-size: var(--step-3);
+  line-height: 1.02;
+}
+
+.lifeTitle em {
+  color: var(--gold-ink);
+}
+
+.lifeMain,
+.lifeSide {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.lifeMain {
+  border-radius: var(--leaf-lg);
+}
+
+.lifeSide {
+  border-radius: var(--arch);
+}
+
+.lifeMain img,
+.lifeSide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lifeMain img {
+  scale: 1.12;
+}
+
+/* ---------- On-site shala ---------- */
+.shala {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: min(64svh, 38rem);
+  padding-block: var(--section);
+  color: #fff;
+  isolation: isolate;
+  overflow: hidden; /* clips the parallax image to this band */
+}
+
+.shalaMedia {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.shalaMedia::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(28 34 25 / 0.85), rgb(28 34 25 / 0.35) 55%, rgb(28 34 25 / 0.2));
+}
+
+.shalaMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  scale: 1.18;
+}
+
+.shalaInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: end;
+}
+
+.shalaTitle {
+  display: grid;
+  font-size: var(--step-6);
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.shalaTitle span:last-child {
+  padding-left: 0.6em;
+  font-style: italic;
+  color: var(--sand-light);
+}
+
+.shalaText {
+  display: grid;
+  gap: 2rem;
+  justify-items: start;
+  max-width: 30rem;
+}
+
+/* ---------- Paths ----------
+   Compact on desktop so this section and the footer fit together in the last screen:
+   heading sits in its own column, photo height follows the viewport height. */
+section.paths {
+  padding-block: clamp(1.5rem, 1rem + 1.5vw, 2.75rem);
+}
+
+.pathsLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 3fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
+}
+
+.pathsHead {
+  display: grid;
+  gap: 1rem;
+}
+
+.pathsTitle {
+  font-size: var(--step-4);
+  line-height: 1;
+}
+
+.pathsTitle em {
+  color: var(--gold-ink);
+}
+
+.pathGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+
+.pathCard {
+  display: grid;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.pathMedia {
+  height: clamp(9.5rem, 26svh, 18rem);
+  overflow: hidden;
+  border-radius: var(--leaf-lg);
+  margin-bottom: 0.5rem;
+}
+
+.pathMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.pathCard:hover .pathMedia img,
+.pathCard:focus-visible .pathMedia img {
+  transform: scale(1.05);
+}
+
+.pathTitle {
+  font-size: var(--step-2);
+  line-height: 1.1;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s var(--ease-line);
+  justify-self: start;
+  padding-bottom: 0.1em;
+}
+
+.pathCard:hover .pathTitle,
+.pathCard:focus-visible .pathTitle {
+  background-size: 100% 1px;
+}
+
+.pathText {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--fg-muted);
+  max-width: 34ch;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 75rem) {
+  .pathsLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 56rem) {
+  .introGrid,
+  .shalaInner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .introMedia {
+    max-width: 26rem;
+  }
+
+  .introSprig {
+    right: 0;
+  }
+
+  .pathsLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pathGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .pathMedia {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pillars > li:nth-child(3) {
+    border-left: 0;
+  }
+
+  .pillars > li:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  .lifeGrid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-rows: auto 18rem;
+  }
+
+  .lifeText {
+    grid-column: 1 / -1;
+  }
+
+  .lifeFlower {
+    margin-bottom: 0;
+  }
+
+  .ctaList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

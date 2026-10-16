@@ -1,0 +1,80 @@
+.rail {
+  --item: min(78vw, 22rem);
+  position: relative;
+}
+
+.rail[data-size='lg'] {
+  --item: min(84vw, 38rem);
+}
+
+.rail[data-size='sm'] {
+  --item: min(72vw, 18rem);
+}
+
+.controls {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.header {
+  min-width: 0;
+}
+
+.buttons {
+  display: flex;
+  flex: none;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.buttons button {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, opacity 0.3s;
+}
+
+.buttons button:hover:not(:disabled) {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+.buttons button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* The track bleeds into the page gutters (never wider than the viewport) and scrolls internally. */
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--item);
+  gap: clamp(1rem, 2.4vw, 2rem);
+  margin: 0 calc(var(--gutter) * -1);
+  padding: 0 var(--gutter) 1.25rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.track > li {
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+.track:focus-visible {
+  outline-offset: -2px;
+}

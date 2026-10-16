@@ -1,0 +1,95 @@
+.marquee {
+  position: relative;
+  /* Clips the moving track to the component (the track is deliberately wider than the screen). */
+  overflow: hidden;
+  padding-block: 0.25em 0.1em;
+  color: var(--sand);
+  font-family: var(--font-serif);
+  font-size: var(--step-6);
+  font-weight: 300;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.marquee[data-size='md'] {
+  font-size: clamp(2.5rem, 1.4rem + 4.4vw, 5.5rem);
+  padding-block: 0.15em 0;
+}
+
+.marquee[data-size='md'] .pause {
+  position: absolute;
+  top: 50%;
+  right: var(--gutter);
+  margin: 0;
+  transform: translateY(-50%);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.copy {
+  display: flex;
+  flex: none;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding-right: 0.35em;
+  white-space: nowrap;
+}
+
+.star {
+  width: 0.22em;
+  height: 0.22em;
+  flex: none;
+  color: var(--sand-light);
+  opacity: 0.8;
+}
+
+.pause {
+  display: grid;
+  margin: 0.25rem var(--gutter) 0 auto;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.pause:hover {
+  border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    padding-inline: var(--gutter);
+    font-size: var(--step-5);
+  }
+
+  .track {
+    display: block;
+    width: auto;
+  }
+
+  .copy:not(:first-child),
+  .item:not(:first-child),
+  .star,
+  .pause {
+    display: none;
+  }
+
+  .item {
+    white-space: normal;
+  }
+}

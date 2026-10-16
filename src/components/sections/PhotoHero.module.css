@@ -1,0 +1,43 @@
+.hero {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: 100svh;
+  padding-top: calc(var(--header-h) + 3rem);
+  padding-bottom: clamp(2.5rem, 7vh, 5.5rem);
+  color: #fff;
+  background: var(--forest);
+  isolation: isolate;
+}
+
+.hero[data-size='tall'] {
+  min-height: min(88svh, 60rem);
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 50% 60%;
+}
+
+/* Legibility scrim: white type always sits on a darkened band (fixes the live site's bare white-on-photo). */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, rgb(28 34 25 / 0.82) 0%, rgb(28 34 25 / 0.45) 38%, rgb(28 34 25 / 0) 70%),
+    linear-gradient(to right, rgb(28 34 25 / 0.35), rgb(28 34 25 / 0) 60%);
+}
+
+.content {
+  position: relative;
+}

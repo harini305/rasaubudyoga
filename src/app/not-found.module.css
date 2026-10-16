@@ -1,0 +1,46 @@
+.main {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding-block: calc(var(--header-h) + 3rem) 5rem;
+}
+
+.inner {
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.flower {
+  width: clamp(5rem, 12vw, 9rem);
+  color: var(--sand-deep);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: var(--step-5);
+  max-width: 14ch;
+}
+
+.title em {
+  color: var(--gold-ink);
+}
+
+.text {
+  max-width: 42ch;
+  color: var(--fg-muted);
+}
+
+.actions {
+  margin-top: 0.5rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 2.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}

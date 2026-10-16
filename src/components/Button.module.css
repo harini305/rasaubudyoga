@@ -1,0 +1,157 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.9rem 2.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--leaf);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    color 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out),
+    background-color 0.35s var(--ease-out);
+}
+
+/* Fill wipe on hover: the radius flips to the opposite corners, echoing the leaf shape. */
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: 50% 100%;
+  transition: transform 0.45s var(--ease-out);
+}
+
+.button:hover::before,
+.button:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+/* Forest on light pages: cream on forest = 8.3:1 */
+.solid {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.solid::before {
+  background: var(--forest-ink);
+}
+
+/* Sand surface with forest-ink text: 8.1:1. Replaces the live site’s white-on-sand (2.56:1). */
+.sand {
+  background: var(--sand-light);
+  color: var(--forest-ink);
+}
+
+.sand::before {
+  background: var(--cream);
+}
+
+.outline {
+  background: transparent;
+  color: var(--fg, var(--forest));
+  border-color: currentColor;
+}
+
+.outline::before {
+  background: var(--fg, var(--forest));
+}
+
+.outline:hover,
+.outline:focus-visible {
+  color: var(--bg, var(--paper));
+  border-color: var(--fg, var(--forest));
+}
+
+/* Outline on photography: white text needs the image scrim provided by the hero. */
+.light {
+  background: rgb(35 42 32 / 0.18);
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.light::before {
+  background: var(--cream);
+}
+
+.light:hover,
+.light:focus-visible {
+  color: var(--forest-ink);
+}
+
+.icon {
+  flex: none;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.button:hover .icon {
+  transform: translate(2px, -2px);
+}
+
+/* ---------- Arrow text link (Home intro CTAs on the live site) ---------- */
+.arrowLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--fg, var(--forest));
+}
+
+.arrow {
+  flex: none;
+  width: 2.5rem;
+  transition: width 0.45s var(--ease-out);
+  overflow: visible;
+}
+
+.arrowHead {
+  transform-origin: 46px 6px;
+  transition: transform 0.45s var(--ease-out);
+}
+
+.arrowLink:hover .arrow,
+.arrowLink:focus-visible .arrow {
+  width: 3.5rem;
+}
+
+.arrowLink:hover .arrowHead {
+  transform: rotate(-10deg);
+}
+
+.arrowText {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s var(--ease-line);
+  padding-bottom: 2px;
+}
+
+.arrowLink:hover .arrowText,
+.arrowLink:focus-visible .arrowText {
+  background-size: 100% 1px;
+}
